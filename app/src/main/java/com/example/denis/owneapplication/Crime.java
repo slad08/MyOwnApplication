@@ -9,7 +9,7 @@ import java.util.UUID;
 public class Crime {
 
     private UUID mId;
-     private String mTitle_istochnik_dohoda;
+    private String mTitle_istochnik_dohoda;
     private String mTitle_summa_dohoda;
     private Date mDate;
 

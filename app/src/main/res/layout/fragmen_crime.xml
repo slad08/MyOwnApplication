@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#ffffff">
 <include
-    android:id="@+id/tool_bar"
+    android:id="@+id/tool_baar"
     layout="@layout/tool_bar"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"/>
