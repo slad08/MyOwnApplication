@@ -27,6 +27,9 @@ public class MoneyLab {
             mCrimes.add(c);
         }
     }
+    public void addCrime(Crime c){
+        mCrimes.add(c);
+    }
     public static MoneyLab get(Context c){
         if (sMoneyLab==null){
             sMoneyLab=new MoneyLab(c.getApplicationContext());

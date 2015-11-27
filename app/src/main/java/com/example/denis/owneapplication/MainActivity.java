@@ -19,10 +19,8 @@ public abstract class MainActivity extends SingFragmentActivity {
         toolbar.setLogo(R.drawable.ic_action_name);
         toolbar.setTitle(R.string.money_app);
         setSupportActionBar(toolbar);
-
 */
-
-       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,7 +31,9 @@ public abstract class MainActivity extends SingFragmentActivity {
                         .setAction("Action", null).show();
             }
         });
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

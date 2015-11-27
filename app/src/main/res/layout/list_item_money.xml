@@ -83,8 +83,7 @@
         style="@style/TextViewStyle"
         android:id="@+id/money_list_item_dateTextView"
         android:layout_below="@+id/line_sum_doh"
-
-        />
+  />
     </LinearLayout>
 
 </RelativeLayout>

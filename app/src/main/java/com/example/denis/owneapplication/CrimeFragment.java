@@ -14,8 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.util.UUID;
 import java.util.Date;
+import java.util.UUID;
 /**
  * Created by Denis on 22.10.2015.
  */
@@ -36,10 +36,9 @@ public class CrimeFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         UUID crimeId=(UUID)getArguments().getSerializable(EXTRA_CRIME_ID);
-
         mCrime=MoneyLab.get(getActivity()).getCrime(crimeId);
 
-    }
+ }
     @Override
     public void onActivityResult(int requestCode,int resultCode,Intent data){
         if (resultCode != Activity.RESULT_OK) return;
@@ -79,8 +78,6 @@ public class CrimeFragment extends Fragment {
              }
          });
 
-
-
          mDateButton=(Button)v.findViewById(R.id.button_time);
           updateDate();
          mDateButton.setOnClickListener(new View.OnClickListener() {
@@ -94,17 +91,13 @@ public class CrimeFragment extends Fragment {
 
              }
          });
-
-
-
-         mTitleSummaDoh=(EditText)v.findViewById(R.id.summa_dohoda);
+            mTitleSummaDoh=(EditText)v.findViewById(R.id.summa_dohoda);
          mTitleSummaDoh.setText(mCrime.getTitle_summa_dohoda());
          mTitleSummaDoh.addTextChangedListener(new TextWatcher() {
              @Override
              public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
              }
-
              @Override
              public void onTextChanged(CharSequence s, int start, int before, int count) {
                 mCrime.setTitle_summa_dohoda(s.toString());
