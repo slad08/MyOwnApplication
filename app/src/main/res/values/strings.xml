@@ -15,4 +15,5 @@
     <string name="crimes_title">Crimes</string>
     <string name="details">Подробности</string>
     <string name="date_picker_title">Дата поступления денег:</string>
+    <string name="new_money">New money</string>
 </resources>

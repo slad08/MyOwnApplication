@@ -24,7 +24,7 @@ public abstract class SingFragmentActivity  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-            }
+             }
         });
      /*   FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 

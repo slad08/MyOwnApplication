@@ -19,13 +19,12 @@ public class MoneyLab {
         mAppContext=AppContext;
         mCrimes=new ArrayList<Crime>();
 
-
-        for (int i=0; i<5; i++){
+       /* for (int i=0; i<5; i++){
             Crime c=new Crime();
             c.setTitle_istochnik_dohoda("Источник дохода"+i);
             c.setTitle_summa_dohoda("Сумма дохода"+i);
             mCrimes.add(c);
-        }
+        }*/
     }
     public void addCrime(Crime c){
         mCrimes.add(c);

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -35,6 +36,8 @@ public class CrimeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
 
+        setHasOptionsMenu(true);
+
         UUID crimeId=(UUID)getArguments().getSerializable(EXTRA_CRIME_ID);
         mCrime=MoneyLab.get(getActivity()).getCrime(crimeId);
 
@@ -53,11 +56,25 @@ public class CrimeFragment extends Fragment {
     public void updateDate(){
         mDateButton.setText(mCrime.getDate().toString());
     }
+    //@TargetApi(11)
      @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup parent,
                              Bundle savedInstanceState){
         View v=inflater.inflate(R.layout.fragmen_crime,parent,false);
 
+
+         Toolbar toolbar = (Toolbar)v.findViewById(R.id.tool_baar);
+         toolbar.setLogo(R.drawable.ic_action_name);
+         toolbar.setTitle(R.string.money_app);
+
+        // setSupportActionBar(toolbar);
+     //    Toolbar toolbar=new Toolbar(R.layout.fragmen_crime,toolbar)
+
+      //   getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
+      /*   if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.HONEYCOMB){
+
+         }
+*/
          mTitleIstDoh=(EditText)v.findViewById(R.id.title_istochnik_dohod);
          mTitleIstDoh.setText(mCrime.getTitle_istochnik_dohoda());
          mTitleIstDoh.addTextChangedListener(new TextWatcher() {
@@ -110,6 +127,15 @@ public class CrimeFragment extends Fragment {
          });
          return v;
     }
+   /* @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case android.R.id.home:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }*/
 public static CrimeFragment newIntance(UUID crimeId){
     Bundle args=new Bundle();
     args.putSerializable(EXTRA_CRIME_ID,crimeId);

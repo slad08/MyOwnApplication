@@ -3,6 +3,9 @@ package com.example.denis.owneapplication;
 import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -23,6 +26,9 @@ public class MoneyListFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+
+
         getActivity().setTitle(R.string.crimes_title);
         mCrimes = MoneyLab.get(getActivity()).getCrimes();
 
@@ -30,7 +36,7 @@ public class MoneyListFragment extends ListFragment {
         setListAdapter(adapter);
 
 
-    }
+ }
     @Override
     public void onListItemClick(ListView l,View v,int position,long id){
          Crime c=((CrimeAdapter)getListAdapter()).getItem(position);
@@ -39,8 +45,6 @@ public class MoneyListFragment extends ListFragment {
         Intent i=new Intent(getActivity(),MoneyPagerActivity.class);
         i.putExtra(CrimeFragment.EXTRA_CRIME_ID,c.getId());
         startActivity(i);
-
-
      //   Log.d(TAG,c.getTitle_dohod()+"was clicked");
     }
     private class CrimeAdapter extends ArrayAdapter<Crime> {
@@ -75,6 +79,26 @@ public class MoneyListFragment extends ListFragment {
 
              return convertView;
 
+        }
+    }
+    @Override
+    public  void onCreateOptionsMenu(Menu menu,MenuInflater inflater){
+        super.onCreateOptionsMenu(menu,inflater);
+        inflater.inflate(R.menu.money_list_fragment,menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.menu_item_new_money:
+                Crime crime=new Crime();
+                MoneyLab.get(getActivity()).addCrime(crime);
+                Intent i=new Intent(getActivity(),MoneyPagerActivity.class);
+                i.putExtra(CrimeFragment.EXTRA_CRIME_ID, crime.getId());
+                startActivityForResult(i,0);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
     @Override
